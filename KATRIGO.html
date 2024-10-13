@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KATRIGO</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Raleway', sans-serif;
+            text-decoration: none;
+            list-style: none;
+            scroll-behavior: smooth;
+        }
+        :root{
+            --text-color: #302e29;
+            --main-color: #E8751A;
+            --second-color: #858585;
+            --bg-color: #F6E6CB;
+            --big-font: 4.5rem;
+            --h2-font: 2.6rem;
+            --p-font: 1.1rem;
+        }
+        body{
+            background: var(--bg-color);
+            color: var(--text-color)
+        }
+        header{
+            position: fixed;
+            width: 100%;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            padding: 23px 15%;
+            transition: all .40s ease;
+        }
+        .logo img{
+            font-size: 30px;
+            width: 100px;
+            height: auto;
+        }
+        .navbar{
+            display: flex;
+        }
+        .navbar a{
+            color: var(--text-color);
+            font-size: var(--p-font);
+            font-weight: 600;
+            padding: 5px 10px;
+            margin: 2px 25px;
+            border-bottom: 2px solid transparent;
+            transition: all .40s ease;
+        }
+        .navbar a:hover{
+            border-bottom: 2px solid var(--main-color);
+            color: var(--main-color);
+        }
+        .h-icons{
+            display: flex;
+            align-items: center;
+            padding: 10px 22px;
+            background: var(--main-color);
+            border-radius: 5rem;
+        }
+        .h-icons i{
+            font-size: 22px;
+            color: var(--bg-color);
+            margin-right: 15px;
+            margin-left: 8px;
+        }
+        #menu-icon{
+            font-size: 32px;
+            color: var(--bg-color);
+            z-index: 10001;
+            cursor: pointer;
+            display: none;
+        }
+        section {
+            padding: 90px 15% 80px;
+        }
+        .home{
+            height: 88vh;
+            width: 100%;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            gap: 2rem;
+            margin-top: 50px;
+        }
+        .home-img img{
+            width: 100%;
+            height: auto;
+        }
+        .home-text h1{
+            font-size: var(--big-font);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+        .home-text p{
+            font-size: var(--p-font);
+            font-weight: 500;
+            color: var(--second-color);
+            line-height: 32px;
+            margin-bottom: 2.3rem;
+            
+        }
+        .btn{
+            display: inline-block;
+            padding: 14px 26px;
+            background: var(--main-color);
+            color: var(--bg-color);
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 5rem;
+            transition: all .40s ease;
+        }
+        .btn:hover{
+            letter-spacing: 1px;
+        }
+        .container-item{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+            gap: 2rem;
+            align-items: center;
+            margin-top: 4rem;
+            cursor: pointer;
+        }
+        .row img{
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .row{
+            transition: all .40s ease;
+        }
+        .menu{
+            padding-top: 110px;
+        }
+        .menu-text{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 15px 0;
+        }
+        .menu-left h4{
+            font-size: 23px;
+        }
+        .menu-right h5{
+            color: var(--main-color);
+            font-size: 23px;
+        }
+        .row p{
+            color: var(--second-color);
+            font-size: 15px;
+            line-height: 30px;
+            margin-bottom: 15px;
+        }
+        .star i{
+            color: var(--main-color);
+            font-size: 17px;
+            margin-right: 4px;
+        }
+        .row:hover{
+            transform: scale(1.02);
+        }
+
+        .about{
+            padding: 50px 0;
+            text-align: center;
+        }
+        footer {
+            background-color: #898121, #FDA403, #E8751A;
+            color: #114232;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        
+        .promo-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 5px; /* Sesuaikan sesuai kebutuhan */
+          }
+          
+          .promo-title {
+            font-size: 40px; /* Sesuaikan ukuran font sesuai kebutuhan */
+            font-weight: bold;
+            margin-bottom: 5px; /* Jarak antara judul dan gambar */
+          }
+    </style>
+
+</head>
+<body>
+   <!-- header selection-->
+   <header>
+    <a href="KATRIGO.html" class="logo">
+      <img src="logo-removebg-preview.png" alt="logo">
+    </a>
+    <ul class="navbar">       
+        <button onclick="window.location.href='menu_1.html'" class="btn">Katering</button>
+        <button onclick="window.location.href='Tentang kami_1.html'" class="btn">Tentang Kami</button>
+        <button onclick="window.location.href='kontak dan lokasi.html'" class="btn">Kontak</button>
+    </ul>
+    <div class="h-icons">
+        <a href="pesanan_1.html"><i class='bx bx-cart'></i></a>
+        <a href="profil_1.html" class="profile-icon"><i class='bx bx-user'></i></a>
+        <button onclick="logout()" href="landing page_1.html" class="btn">
+            <i class='bx bx-log-out' style="transform: rotate(180deg);"></i>
+        </button>        
+        
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+  </header>
+  
+
+    <!-- home section-->
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1><span>Selamat Datang </span>Di KATRIGO</h1>
+            <h3>Katering Terbaik di Probolinggo</h3>
+        </div>
+        <div class="home-removebg-preview">
+            <img src="home-removebg-preview.png" alt="home">
+        </div>
+        <h2>Produk andalan kami yang sering dipesan</h2>
+    </section>
+    <!-- container section-->
+    <section class="container" >
+        <div class="container-item">
+            <div class="row">
+                <img src="tumpeng.png" alt="main-product1">
+                <div class="menu-text">
+                    <div class="menu-left">
+                        <h4>Nasi Tumpeng</h4>
+                    </div>
+                    <div class="menu-right">
+                        <h5>Rp.250.000</h5>
+                    </div>
+                </div>
+                <div class="star">
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <img src="uduk.png" alt="main-product2">
+                <div class="menu-text">
+                    <div class="menu-left">
+                        <h4>Nasi Uduk</h4>
+                    </div>
+                    <div class="menu-right">
+                        <h5>Rp.30.000</h5>
+                    </div>
+                </div>
+                <div class="star">
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <img src="campur.png" alt="main-product3">
+                <div class="menu-text">
+                    <div class="menu-left">
+                        <h4>Nasi Campur <i>big size</i></h4>
+                    </div>
+                    <div class="menu-right">
+                        <h5>Rp.75.000</h5>
+                    </div>
+                </div>
+                <div class="star">
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star-half'></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <img src="bakar.png" alt="main-product4">
+                <div class="menu-text">
+                    <div class="menu-left">
+                        <h4>Nasi Bakar Ayam Suwir</h4>
+                    </div>
+                    <div class="menu-right">
+                        <h5>Rp.25.000</h5>
+                    </div>
+                </div>
+                <div class="star">
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star' ></i></a>
+                    <a href="#"><i class='bx bxs-star-half'></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="promo-container">
+        <h2 class="promo-title">Promo yang tersedia di KATRIGO</h2>
+    </div>
+     <!-- home section with slideshow-->
+     <section class="home" id="home">
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <img src="G:\ANNISA MARCHARANI\TUGAS\UNESA\SEMESTER 3\PEMROGRAMAN WEB\Web Desain\slide 1.jpg" class="slide-image" alt="Gambar 1">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="G:\ANNISA MARCHARANI\TUGAS\UNESA\SEMESTER 3\PEMROGRAMAN WEB\Web Desain\slide 2.jpg" class="slide-image" alt="Gambar 2">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="G:\ANNISA MARCHARANI\TUGAS\UNESA\SEMESTER 3\PEMROGRAMAN WEB\Web Desain\slide 3.png" class="slide-image" alt="Gambar 3">
+            </div>
+            <div class="mySlides fade">
+                <img src="G:\ANNISA MARCHARANI\TUGAS\UNESA\SEMESTER 3\PEMROGRAMAN WEB\Web Desain\slide 4.jpg" class="slide-image" alt="Gambar 4">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="G:\ANNISA MARCHARANI\TUGAS\UNESA\SEMESTER 3\PEMROGRAMAN WEB\Web Desain\slide 5.jpg" class="slide-image" alt="Gambar 5">
+            </div>
+
+
+            <!-- Tombol navigasi -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Katering Probolinggo. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+            // Fungsi slideshow
+            let slideIndex = 0;
+            showSlides();
+    
+            function showSlides() {
+                let i;
+                const slides = document.getElementsByClassName("mySlides");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}    
+                slides[slideIndex - 1].style.display = "block";  
+                setTimeout(showSlides, 5000); // Ganti slide setiap 5 detik
+            }
+    
+            function plusSlides(n) {
+                slideIndex += n - 1; // Mengatur slideIndex untuk tombol navigasi
+                showSlides();
+            }
+        function logout() {
+            // Mengalihkan ke halaman login
+            window.location.href = 'landing page.html'; 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!-- Header Section -->
+<header>
+    <h1>Pesanan Anda</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <nav>
+      <ul>
+        <button onclick="window.location.href='menu_1.html'" class="back-btn"><i class="fas fa-arrow-left"></i></button>
+        <button onclick="window.location.href='KATRIGO.html'" class="home-btn"><i class="fas fa-home"></i></button>      
+      </ul>
+    </nav>
+</header>
+
+<!-- Halaman Pesanan Section -->
+<section id="order-page" style="padding: 80px;">
+    <h2>Riwayat Pesanan</h2>
+    <ul id="confirmed-orders"></ul>
+</section>
+
+<!-- CSS Styles -->
+<style>
+  /* Global Styles */
+  body {
+    font-family: Cambria, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F6E6CB;
+  }
+
+  /* Header Styles */
+  header {
+  background: linear-gradient(to right, #898121, #FDA403, #E8751A);
+  color: black;
+  padding: 20px 0;
+  color: blacks;
+  padding: 20px;
+  text-align: center;
+  }
+
+  .back-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: black;
+  outline-width: 100%;
+  font-size: 20px; /* Ukuran ikon */
+  margin-right: 980px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+  }
+
+  .home-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-size: 20px; /* Ukuran ikon */
+  margin-right: 10px;
+  }
+
+  /* Order Page Section Styles */
+  section {
+    padding: 20px;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 20px;
+  }
+
+  .order-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: white;
+  }
+
+  .order-status {
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  .status-diproses {
+    background-color: #FDA403;
+  }
+
+  .status-selesai {
+    background-color: green;
+  }
+
+  .status-dibatalkan {
+    background-color: red;
+  }
+</style>
+
+<!-- JavaScript Code -->
+<script>
+  let confirmedOrders = [];
+  const confirmedOrdersList = document.getElementById('confirmed-orders');
+
+  // Function to add a confirmed order to the confirmedOrders array
+  function addConfirmedOrder(orderTitle, orderQuantity, orderPrice, status) {
+    const order = {
+      title: orderTitle,
+      quantity: orderQuantity,
+      price: orderPrice,
+      status: status
+    };
+    confirmedOrders.push(order);
+    renderConfirmedOrders();
+  }
+
+  // Function to render the list of confirmed orders
+  function renderConfirmedOrders() {
+    confirmedOrdersList.innerHTML = ''; // Clear current list
+    confirmedOrders.forEach((order, index) => {
+      const orderItem = document.createElement('li');
+      orderItem.classList.add('order-item');
+      orderItem.innerHTML = `
+        <h3>${order.title} - Jumlah: ${order.quantity}</h3>
+        <p>Harga: Rp ${order.price}</p>
+        <p>Status: <span class="order-status status-${order.status.toLowerCase()}">${order.status}</span></p>
+      `;
+      confirmedOrdersList.appendChild(orderItem);
+    });
+  }
+
+  // Example of how to add a new confirmed order (this would be done when confirming checkout)
+  document.addEventListener('DOMContentLoaded', () => {
+    // Ini hanya contoh manual, nanti bisa diubah sesuai proses checkout
+    addConfirmedOrder('Nasi Goreng', 2, 60000, 'Diproses');
+    addConfirmedOrder('Tiramisu', 1, 25000, 'Selesai');
+  });
+
+  // Function to change status (e.g., from "Diproses" to "Selesai")
+  function updateOrderStatus(index, newStatus) {
+    if (confirmedOrders[index]) {
+      confirmedOrders[index].status = newStatus;
+      renderConfirmedOrders();
+    }
+  }
+</script>
